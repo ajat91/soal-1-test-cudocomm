@@ -1,0 +1,5 @@
+SELECT Orders.OrderDate as Bulan, Categories.CategoryName as CategoryName, SUM(OrderDetails.Quantity) as QtyItem FROM OrderDetails
+LEFT JOIN Orders ON Orders.OrderID = OrderDetails.OrderID
+LEFT JOIN Products ON Products.ProductID = OrderDetails.ProductID
+LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID
+GROUP BY Orders.OrderDate, Categories.CategoryName
